@@ -1,0 +1,22 @@
+<%=simple_nested_form_for @movie do |f| %>
+    <%= f.input :name  %>
+    <%= f.input :description  %>
+
+
+    <%=f.fields_for :songs do |s|%>
+        <%= s.input :name%>
+        <%= s.link_to_remove "Delete Song"%>
+    <% end %>
+    <p><%= f.link_to_add "Add a Song", :songs %></p>
+
+
+    <%=f.fields_for :movie_actors do |a|%>
+
+        <%= a.association :actor  %>
+        <%= a.input :role%>
+        <%= a.link_to_remove "Delete Actor"%>
+    <% end %>
+    <p><%= f.link_to_add "Add an Actor", :movie_actors %></p>
+<!-- <%#=a.collection_select :id, Actor.order(:id),:id,:name, include_blank: true %>-->
+    <%= f.button :submit %>
+<%end %>

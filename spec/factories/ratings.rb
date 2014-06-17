@@ -1,0 +1,9 @@
+FactoryGirl.define do
+	factory :rating do |r|
+		r.stars	{1 + rand(7)}
+		r.user_id {rand(20)}
+		ratable_id {rand(20)}
+		ratable_type {"Movie"}
+	end
+
+end

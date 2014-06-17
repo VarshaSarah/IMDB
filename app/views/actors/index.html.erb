@@ -1,0 +1,14 @@
+Welcome to My World.......
+
+<%= 
+#Actor.all.map(&:name )
+%>
+
+<% @actors.each do|actor|%>
+    <p>	<%= link_to actor.name , actor_path(actor)%>
+    <%=link_to" | Edit | ", edit_actor_path(actor) %>  <!--by default get method -->
+    <%= link_to(" Delete |", actor_path(actor), method: :delete)%></p>
+<%end%>
+
+<%= link_to"Create a new Actor", new_actor_path %>
+

@@ -1,0 +1,12 @@
+require 'spec_helper'
+
+describe Actor do
+  #pending "add some examples to (or delete) #{__FILE__}"
+	let(:actor){FactoryGirl.create(:actor)}
+	it"Tests if Actor name is a string " do
+				expect(actor.name).to match(/^[A-Z][a-z]+(\s[A-Z][a-z])*/)
+	end
+	it "Checks 1st alphabet capital" do
+		expect(actor.name[0]).to match(/[A-Z]/)
+	end
+end

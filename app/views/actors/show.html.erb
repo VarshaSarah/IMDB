@@ -1,0 +1,11 @@
+<ul>
+  <%@actor.movie_actors.includes(:movie).each do |movie_actor| %>
+      <li><%=movie_actor.role %>
+        <%=movie_actor.movie.name %>
+      </li><br>
+  <%end %>
+
+</ul>
+
+
+

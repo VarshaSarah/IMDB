@@ -1,0 +1,16 @@
+<h2>Users</h2>
+<hr>
+<ul>
+  <%@users.each do |user| %>
+      <li> <%=link_to user.name , user_path(user) %> </li> <br>
+
+
+  <%end %>
+
+  <%= simple_form_for @user, url: user_path(:id=>1), method: "get" do |f| %>
+    <%=f.input :name ,label:"Username"%>
+    <%=f.button :submit,:value=>"Login" %>
+
+  <% end%>
+</ul>
+

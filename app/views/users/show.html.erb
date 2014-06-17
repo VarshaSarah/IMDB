@@ -1,0 +1,35 @@
+<h4>Welcome..</h4>
+
+<h3>Movies present</h3>
+<hr>
+<ul>
+  <% @movies.each do|movie|%>
+      <li>
+        <% avg =0 %>
+        <%=  movie.name %> :
+        <%x = (r = movie.ratings).inject(0){|avg,rate| avg + rate.stars}%>
+        <% if movie.ratings.count >0%>
+            <%= avg = x / movie.ratings.count %>
+        <% end %>
+        <%=link_to" | Rate |", edit_user_path(movie) %>
+      </li><br>
+  <%end%>
+
+</ul>
+
+<h3>Songs present</h3>
+<hr>
+<ul>
+  <% @songs.each do|song|%>
+      <li>
+        <%=  song.name %> :
+        <%x = (r = song.ratings).inject(0){|avg,rate| avg + rate.stars}%>
+        <% if song.ratings.count >0%>
+            <%= avg = x / song.ratings.count %>
+        <% end %>
+
+        <%=link_to" | Rate |", edit_user_path(song) %>
+      </li><br>
+  <%end%>
+
+</ul>

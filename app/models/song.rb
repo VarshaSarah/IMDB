@@ -1,0 +1,9 @@
+class Song < ActiveRecord::Base
+	
+	belongs_to :movie
+	has_many :ratings, as: :ratable
+	
+#	validates	:movie_id ,presence: true
+	validates_associated :movie	#
+
+end

@@ -1,0 +1,5 @@
+<%= form_for @actor, url: actor_path(@actor.id) do |f|%>
+    <%= f.label :name  %>
+    <%= f.text_field :name%>
+    <%= f.submit "Update" %>
+<% end %>

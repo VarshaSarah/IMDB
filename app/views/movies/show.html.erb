@@ -1,0 +1,37 @@
+
+    <h3><%=@movie.name%></h3>
+    <br>
+    <%=simple_nested_form_for @movie, url:movie_path(@movie) do |f| %>
+        <%=f.fields_for :ratings do |a|%>
+            <%= a.input :stars,collection: 1..5  %>
+        <%end %>
+        <%=f.link_to_add "Rate", :ratings %>
+
+        <h4>Description</h4>
+        <%=@movie.description%><br>
+
+        <h4>..Cast..</h4>
+
+        <% @actors.each do |a|%>
+            <%= a.name%>
+        <%end%>
+        <%#= a.movie_actors['role']%>
+
+        <h4>..Songs..</h4>
+        <ul>
+
+        <% @songs.each do |s|%>
+          <li><%= s.name%>
+              <%=f.fields_for :ratings do |a|%>
+                  <%= a.input :stars,collection: 1..5  %>
+              <%end %>
+              <%=f.link_to_add "Rate", :ratings %>
+          </li>
+
+        <%end%>
+        <%= f.button :submit,"Rate"%>
+        </ul>
+    <% end%>
+
+
+

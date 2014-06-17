@@ -1,0 +1,22 @@
+require 'spec_helper'
+
+describe Song do
+  #pending "add some examples to (or delete) #{__FILE__}"
+=begin	let(:song){FactoryGirl.create(:song)}
+	it"Tests Validation of Song name " do
+				expect(Song.name).to match(/[a-zA-Z]/)
+	end
+	it "Checks 1st alphabet capital" do
+		expect(song.name[0]).to match(/[A-Z]/)
+	end
+=end
+
+	it "checks association of a movie" do
+		no_movie_song = Song.new(:movie_id => nil)
+		expect(no_movie_song.valid?).to eq(false)
+		Song.where(movie_id in(Movie.all(&:id)))
+	end
+
+	
+
+end
